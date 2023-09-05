@@ -1,5 +1,8 @@
 package ru.kata.spring.boot_security.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.security.core.GrantedAuthority;
@@ -43,6 +46,11 @@ public class User implements UserDetails {
             joinColumns = @JoinColumn(name = "users_id"),
             inverseJoinColumns = @JoinColumn(name = "roles_id"))
     @Fetch(FetchMode.JOIN)
+//    @JsonIdentityInfo(
+//            generator = ObjectIdGenerators.PropertyGenerator.class,
+//            property = "id"
+//    )
+
     private Set<Role> roles;
 
     public User() {
@@ -136,4 +144,5 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
