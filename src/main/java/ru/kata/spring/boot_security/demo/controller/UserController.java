@@ -21,7 +21,7 @@ public class UserController {
 
     @GetMapping(value = "/user")
     public String userPage(ModelMap model, Principal principal) {
-        model.addAttribute("user", (ru.kata.spring.boot_security.demo.model.User) userService.loadUserByUsername(principal.getName()));
+        //model.addAttribute("user", (ru.kata.spring.boot_security.demo.model.User) userService.loadUserByUsername(principal.getName()));
         return "user";
     }
 
