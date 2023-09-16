@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin
-//@RequestMapping("/rest")
+@RequestMapping("/admin")
 public class RestAdminController {
 
     public final UserService userService;
@@ -29,10 +29,10 @@ public class RestAdminController {
 //        return allUsers;
 //    }
 
-    @GetMapping(value = "/admin/users")
+    @GetMapping(value = "/users")
     public ResponseEntity<List<User>> showAllUsers() {
-        List<User> allUsers = userService.listUsers();
-        return new ResponseEntity<>(allUsers, HttpStatus.OK);
+        List<User> users = userService.listUsers();
+        return new ResponseEntity<>(users, HttpStatus.OK);
     }
 
 //    @GetMapping(value = "/admin/users/{id}")
